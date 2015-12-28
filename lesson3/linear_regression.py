@@ -157,8 +157,8 @@ def plot_cost_history(alpha, cost_history):
 def compute_r_squared(data, predictions):
     """
     # https://en.wikipedia.org/wiki/Coefficient_of_determination
-    # R^2 = 1 - (sum(actual - predicted).squared / sum(actual - actual.avg).squared)
-    """
+    # R^2 = 1 - (sum(actual - predicted).squared / sum(actual - actual.avg).squared
+)    """
     expected = np.mean(data)
     total_sum_of_squares = np.square(data - expected).sum()
     total_sum_of_residuals = np.square(data - predictions).sum()
