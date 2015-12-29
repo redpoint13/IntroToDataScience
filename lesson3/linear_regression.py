@@ -1,6 +1,8 @@
 import numpy as np
 import pandas
 from ggplot import *
+import datetime
+
 
 """
 In this question, you need to:
@@ -90,7 +92,7 @@ def predictions(dataframe):
     that it runs faster.
     '''
     # Select Features (try different features!)
-    features = dataframe[['rain', 'precipi', 'Hour', 'meantempi']]
+    features = dataframe[['rain', 'precipi', 'Hour', 'meantempi', 'day_of_week']]
     
     # Add UNIT to features using dummy variables
     dummy_units = pandas.get_dummies(dataframe['UNIT'], prefix='unit')
@@ -167,4 +169,6 @@ def compute_r_squared(data, predictions):
 
 
 df = pandas.read_csv('turnstile_data_master_with_weather.csv')
-predictions(df)
+df['day_of_week'] = df.pandas.dt.weekday(df['DATEn'])
+
+#predictions(df)  #uncomment to run preditions
