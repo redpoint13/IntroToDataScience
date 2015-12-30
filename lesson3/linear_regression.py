@@ -13,7 +13,9 @@ In this question, you need to:
 
 def normalize_features(df):
     """
-    Normalize the features in the data set.
+    Normalize the features in the data set. https://en.wikipedia.org/wiki/Normalization_(statistics)
+    Standard Score - Normalizing errors when population parameters are known. Works 
+        well for populations that are normally distributed
     """
     mu = df.mean()
     sigma = df.std()
@@ -169,6 +171,8 @@ def compute_r_squared(data, predictions):
 
 
 df = pandas.read_csv('turnstile_data_master_with_weather.csv')
-df['day_of_week'] = df.pandas.dt.weekday(df['DATEn'])
+df['day_of_week'] = pandas.to_datetime(df['DATEn']).dt.weekday
+#print df['day_of_week']
 
-#predictions(df)  #uncomment to run preditions
+prediction = predictions(df)  #uncomment to run preditions
+print prediction
